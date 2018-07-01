@@ -1,8 +1,102 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
 }
 
-a {
-  color: #00B7FF;
+html{
+  height: 100%;
+}
+
+body {
+  background-color: #DCDBD9;
+  box-sizing: border-box;
+  color: #2C2C2C;
+  display: flex;
+  font: normal 100% Cambria, Georgia, serif;
+  height: 100%;
+  line-height: 1;
+  overflow: hidden;
+}
+
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+h1{
+	font-size: 1.5em; /* 24 / 16 */
+	font-style: italic;
+	font-weight: normal;
+}
+
+aside{
+	display: flex;
+	flex-direction: column;
+}
+
+.stockList{
+	display: flex;
+	font-size: 1.25em; /*20 / 16 */
+	font-weight: bold;
+}
+section{
+	display: flex;
+	flex-direction: column;
+}
+@media only screen and (min-width: 57.5em) { /*920 / 16 */
+  main{
+		max-width: 57.5em;
+	}
+}
+
+@media only screen and (min-width: 56em){ /*896 / 16 */
+	body{
+		justify-content: center;
+	}
+}
+
+@media only screen and (min-width: 26.25){ /*420 / 16 */
+	main{
+		display: inline-flex;
+	}
+	aside{
+		min-width: 15em;
+	}
 }
