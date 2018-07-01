@@ -1,0 +1,22 @@
+{
+  "name": "project2",
+  "version": "1.0.0",
+  "description": "Project 2 for ITMD 469 at Illinois Institute of Technology",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/section11/project2itmd469.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/section11/project2itmd469/issues"
+  },
+  "homepage": "https://github.com/section11/project2itmd469#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
