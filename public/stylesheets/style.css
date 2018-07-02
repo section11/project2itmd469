@@ -30,6 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 html{
+	line-height: 1;
   height: 100%;
 }
 
@@ -62,12 +63,12 @@ body {
 	color: #aeb2b7;
 	display: flex;
 	flex-grow: 1;
-	justify-content: center;
   overflow-y: auto;
 }
 
 #sidebar {
 	flex-shrink: 0;
+	max-width: 10em;
 }
 
 #sidebar li{
@@ -98,10 +99,13 @@ body {
 }
 
 #stockcontent h1{
+	background-color: #DCDBD9;
 	font-size: 1.5em; /* 24 / 16 */
 	font-style: italic;
 	font-weight: normal;
+	padding: 1.10em;
 	position: fixed;
+	width: 100%;
 }
 
 #stockcontent .green{
@@ -110,6 +114,9 @@ body {
 
 #stockcontent .red{
 	background-color: red;
+}
+#stockcontent .pricelist{
+	padding-top: 1em;
 }
 
 ol, ul {
@@ -129,22 +136,25 @@ table {
 }
 
 @media only screen and (min-width: 57.5em) { /*920 / 16 */
-  #stockcontent{
-
+  #stockcontent h1{
+		padding: 0.21em;
 	}
 }
 
-@media only screen and (min-width: 56em){ /*896 / 16 */
-	body{
+@media (min-width: 45em){ /*896 / 16 */
+	#sidebar{
+		max-width: 13em;
+	}
+	.bottom{
 		justify-content: center;
 	}
 }
 
-@media only screen and (min-width: 26.25){ /*420 / 16 */
-	main{
-		display: inline-flex;
+@media (min-width: 33.125em){ /*530 / 16 */
+	#sidebar{
+		min-width: 11.5em;
 	}
-	aside{
-		min-width: 15em;
+	#stockcontent h1{
+		padding: 0.68em;
 	}
 }

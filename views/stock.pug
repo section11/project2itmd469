@@ -3,7 +3,7 @@ h1= title
 - var previousDay = firstDay
 - var previous = stockData['Time Series (Daily)'][firstDay]['4. close']
 
-ul
+ul(class='pricelist')
   each day in Object.keys(stockData['Time Series (Daily)'])
     if Number(previous) < Number(stockData['Time Series (Daily)'][day]['4. close'])
       li(class='red') #{previousDay} - #{stockData['Time Series (Daily)'][previousDay]['4. close']}
