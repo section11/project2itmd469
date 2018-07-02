@@ -104,6 +104,14 @@ body {
 	position: fixed;
 }
 
+#stockcontent .green{
+	background-color: green;
+}
+
+#stockcontent .red{
+	background-color: red;
+}
+
 ol, ul {
 	list-style: none;
 }

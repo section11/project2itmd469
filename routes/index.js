@@ -57,7 +57,6 @@ let getStockInfo = function(req, res, next){
   return new Promise(function (resolve, reject) {
     request(options).then(function (data) {
       req.stockData = JSON.parse(data);
-      console.log(data);
       next();
     })
     .catch(function (err) {

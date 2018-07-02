@@ -1,4 +1,15 @@
 h1= title
-each day in stockData['Time Series (Daily)']
-  p= day['4. close']
-  p= day['5. volume']
+- var firstDay = Object.keys(stockData['Time Series (Daily)'])[0]
+- var previousDay = firstDay
+- var previous = stockData['Time Series (Daily)'][firstDay]['4. close']
+
+ul
+  each day in Object.keys(stockData['Time Series (Daily)'])
+    if Number(previous) < Number(stockData['Time Series (Daily)'][day]['4. close'])
+      li(class='red') #{previousDay} - #{stockData['Time Series (Daily)'][previousDay]['4. close']}
+    else if Number(previous) > Number(stockData['Time Series (Daily)'][day]['4. close'])
+      li(class='green') #{previousDay} - #{stockData['Time Series (Daily)'][previousDay]['4. close']}
+    else if Number(previous) === Number(stockData['Time Series (Daily)'][day]['4. close']) && previousDay !== day
+      li #{previousDay} - #{stockData['Time Series (Daily)'][previousDay]['4. close']}
+    - previousDay = day
+    - previous = stockData['Time Series (Daily)'][previousDay]['4. close']
