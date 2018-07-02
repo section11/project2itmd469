@@ -35,38 +35,41 @@ let getStocksBatchQuotes = function(req, res, next) {
     })
     .catch(function (err) {
       req.data = 'Server error';
+      next();
     });
   });
 }
 
 router.use(readStockList);
-router.use(getStocksBatchQuotes);
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', getStocksBatchQuotes, function(req, res, next) {
   res.render('index', { title: 'Stock Market Data', stockList: req.data });
 });
 
 let getStockInfo = function(req, res, next){
   let options = {
-    uri: `https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols=${req.stockList.join(',')}&apikey=${key}`,
+    uri: `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${req.params.stock}&apikey=${key}`,
     headers: {
       'User-Agent': 'Request-Promise'
     }
   };
   return new Promise(function (resolve, reject) {
     request(options).then(function (data) {
-      req.data = JSON.parse(data);
+      req.stockData = JSON.parse(data);
+      console.log(data);
       next();
     })
     .catch(function (err) {
-      req.data = 'Server error';
+      req.stockData = 'Server error';
+      next();
     });
   });
 }
 
-router.get('/getstock/:stock', function(req, res, next){
-  res.render('stock', {title: req.params.stock});
+
+router.get('/getstock/:stock', getStockInfo, function(req, res, next){
+  res.render('stock', {title: req.params.stock, stockData: req.stockData});
 });
 
 module.exports = router;
