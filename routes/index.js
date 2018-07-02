@@ -47,7 +47,7 @@ router.use(getStocksBatchQuotes);
 /* GET home page. */
 router.get('/', function(req, res, next) {
   console.log(req.data);
-  res.render('index', { title: 'Stock Market Data', data: req.data });
+  res.render('index', { title: 'Stock Market Data', stockList: req.data });
 });
 
 module.exports = router;

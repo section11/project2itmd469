@@ -44,6 +44,53 @@ body {
   overflow: hidden;
 }
 
+.column {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.top-left {
+	background-color: #5cc7b2;
+	color: white;
+	flex-shink: 0;
+	font-size: 1.35em;
+	padding: 0.3em;
+}
+.bottom {
+	background-color: #2a3542;
+	color: #aeb2b7;
+	display: flex;
+	flex-grow: 1;
+	justify-content: center;
+  overflow-y: auto;
+}
+
+#sidebar {
+	flex-shrink: 0;
+}
+
+#sidebar li{
+	cursor: pointer;
+	font-size: 1.1em;
+	margin-bottom: 0.35em;
+	padding: 0.2em;
+}
+
+#sidebar li:last-child{
+	margin-bottom: 0;
+}
+
+#sidebar li:first-child{
+	margin-top: 0.2em;
+}
+
+#sidebar li .sidebar-price{
+	color: white;
+	display: inline-flex;
+	font-weight: bold;
+}
+
 ol, ul {
 	list-style: none;
 }
