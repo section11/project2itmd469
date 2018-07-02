@@ -7,3 +7,4 @@ block content
       ul(id='stockList')
         each stock in stockList['Stock Quotes']
           li('data-stock'=stock['1. symbol']) #{stock['1. symbol']} - #[p(class='sidebar-price') #{stock['2. price']}]
+  div(class='column', id='stockcontent')

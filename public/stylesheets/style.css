@@ -91,6 +91,19 @@ body {
 	font-weight: bold;
 }
 
+#stockcontent{
+	display: flex;
+	flex: 1;
+  overflow-y: auto;
+}
+
+#stockcontent h1{
+	font-size: 1.5em; /* 24 / 16 */
+	font-style: italic;
+	font-weight: normal;
+	position: fixed;
+}
+
 ol, ul {
 	list-style: none;
 }
@@ -107,29 +120,9 @@ table {
 	border-spacing: 0;
 }
 
-h1{
-	font-size: 1.5em; /* 24 / 16 */
-	font-style: italic;
-	font-weight: normal;
-}
-
-aside{
-	display: flex;
-	flex-direction: column;
-}
-
-.stockList{
-	display: flex;
-	font-size: 1.25em; /*20 / 16 */
-	font-weight: bold;
-}
-section{
-	display: flex;
-	flex-direction: column;
-}
 @media only screen and (min-width: 57.5em) { /*920 / 16 */
-  main{
-		max-width: 57.5em;
+  #stockcontent{
+
 	}
 }
 
