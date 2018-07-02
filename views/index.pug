@@ -4,6 +4,6 @@ block content
   div(class='column', id='sidebar')
     div(class='top-left') Most traded stocks on NYSE
     div(class='bottom')
-      ul
+      ul(id='stockList')
         each stock in stockList['Stock Quotes']
-          li #{stock['1. symbol']} - #[p(class='sidebar-price') #{stock['2. price']}]
+          li('data-stock'=stock['1. symbol']) #{stock['1. symbol']} - #[p(class='sidebar-price') #{stock['2. price']}]

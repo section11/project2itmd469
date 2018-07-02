@@ -28,7 +28,6 @@ let getStocksBatchQuotes = function(req, res, next) {
       'User-Agent': 'Request-Promise'
     }
   };
-  console.log(options);
   return new Promise(function (resolve, reject) {
     request(options).then(function (data) {
       req.data = JSON.parse(data);
@@ -40,14 +39,34 @@ let getStocksBatchQuotes = function(req, res, next) {
   });
 }
 
-
 router.use(readStockList);
 router.use(getStocksBatchQuotes);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(req.data);
   res.render('index', { title: 'Stock Market Data', stockList: req.data });
+});
+
+let getStockInfo = function(req, res, next){
+  let options = {
+    uri: `https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols=${req.stockList.join(',')}&apikey=${key}`,
+    headers: {
+      'User-Agent': 'Request-Promise'
+    }
+  };
+  return new Promise(function (resolve, reject) {
+    request(options).then(function (data) {
+      req.data = JSON.parse(data);
+      next();
+    })
+    .catch(function (err) {
+      req.data = 'Server error';
+    });
+  });
+}
+
+router.get('/getstock/:stock', function(req, res, next){
+  res.render('stock', {title: req.params.stock});
 });
 
 module.exports = router;
